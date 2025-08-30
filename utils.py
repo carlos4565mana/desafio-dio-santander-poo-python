@@ -73,3 +73,40 @@ def listar_contas(contas):
     Saldo: R$ {conta.saldo:.2f}
     {"-" * 30}""")
 
+def listar_clientes(clientes):
+  if not clientes:
+    print("\n⚠️ Nenhum cliente cadastrado.")
+    return
+  print("\n" + "=" * 60)
+  print("              CLIENTES CADASTRADOS")
+  print("=" * 60)
+  for cliente in clientes:
+    print(f"""
+    Nome: {cliente.nome}
+    CPF: {formatar_cpf(cliente.cpf)}
+    Data Nascimento: {cliente.data_nascimento}
+    Endereço: {cliente.endereco}
+    Qtd. Contas: {len(cliente.contas)}
+    {"-" * 40}""")
+
+def exibir_extrato(conta):
+    print("\n" + "=" * 50)
+    print("                 EXTRATO")
+    print("=" * 50)
+    print(f"Agência: {conta.agencia}")
+    print(f"Conta: {conta.numero}")
+    print(f"Titular: {conta.cliente.nome}")
+    print("-" * 50)
+    
+    transacoes = conta.historico.transacoes
+    if not transacoes:
+      print("Não foram realizadas movimentações.")
+    else:
+      for transacao in transacoes:
+        tipo = transacao['tipo']
+        valor = transacao['valor']
+        data = transacao['data']
+        print(f"{data} | {tipo}: R$ {valor:.2f}")
+    print("-" * 50)
+    print(f"Saldo atual: R$ {conta.saldo:.2f}")
+    print("=" * 50)
