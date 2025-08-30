@@ -22,7 +22,7 @@ Modelar o sistema bancário em POO, adicionando classes para cliente e as opera�
 
 ### **Diagrama de Classes UML**
 
-![Imagem da classe UML](<img width="1058" height="640" alt="Image" src="https://github.com/user-attachments/assets/94a2772b-f5ab-4e65-916c-3de6131393bd" />)
+![Imagem da classe UML]<img width="1058" height="640" alt="Image" src="https://github.com/user-attachments/assets/94a2772b-f5ab-4e65-916c-3de6131393bd" />
 
 ## 🔧 Classes Implementadas
 
