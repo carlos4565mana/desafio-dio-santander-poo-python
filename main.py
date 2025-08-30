@@ -97,7 +97,40 @@ def criar_conta(numero_conta, clientes, contas):
   print(f"📄 Número: {conta.numero}")
   print(f"👤 Titular: {conta.cliente.nome}")
 
+def listar_contas(contas):
+  listar_contas(contas)
+
+def listar_clientes(clientes):
+  listar_clientes(clientes)
+
+def depositar(clientes):
+  cpf = input("Informe o CPF do cliente: ")
+  cliente = filtrar_cliente(cpf, clientes)
   
+  if not cliente:
+    print("\n⚠️ Cliente não encontrado!")
+    return
+  
+  valor = obter_valor_operacao("depósito")
+  transacao = Deposito(valor)
+  conta = recuperar_conta_cliente(cliente)
+  if not conta:
+    return
+  cliente.realizar_transacao(conta, transacao)
+
+def sacar(clientes):
+  cpf = input("Informe o CPF do cliente: ")
+  cliente = filtrar_cliente(cpf, clientes)
+
+  if not cliente:
+    print("\n⚠️ Cliente não encontrado!")
+    return
+  valor = obter_valor_operacao("saque")
+  transacao = Saque(valor)
+  conta = recuperar_conta_cliente(cliente)
+  if not conta:
+    return
+  cliente.realizar_transacao(conta, transacao)
 
 
 
