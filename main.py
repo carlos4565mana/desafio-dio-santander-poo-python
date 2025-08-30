@@ -17,6 +17,10 @@ def menu():
   => """
 
 def main():
+  """Função principal do sistema"""
+  clientes = []
+  contas = []
+
   print("🏦 Bem-vindo ao Sistema Bancário POO!")
   while True:
     opcao = input(menu()).strip()
